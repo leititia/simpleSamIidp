@@ -1,0 +1,10 @@
+
+
+<?php
+$config = [
+    'openidprovider' => array(
+        'openidprovider:ProviderServer'
+    ),
+        'filestore' => '/var/lib/openid-provider',
+];
+?>

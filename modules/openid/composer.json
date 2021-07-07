@@ -1,0 +1,41 @@
+{
+    "name": "simplesamlphp/simplesamlphp-module-openid",
+    "description": "A SimpleSAMLphp module adding support for the OpenID protocol.",
+    "type": "simplesamlphp-module",
+    "keywords": [ "openid", "consumer" ],
+    "homepage": "http://simplesamlphp.org",
+    "license": "LGPL-2.1",
+    "authors": [
+        {
+            "name": "Andreas Åkre Solberg",
+            "email": "andreas.solberg@uninett.no"
+        },
+        {
+            "name": "Olav Morken",
+            "email": "olav.morken@uninett.no"
+        },
+        {
+            "name": "Andjelko Horvat",
+            "email": "comel@vingd.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SimpleSAML\\Module\\openid\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SimpleSAML\\Test\\Utils\\": "vendor/simplesamlphp/simplesamlphp/tests/Utils"
+        }
+    },
+    "require": {
+        "openid/php-openid": "^3.0.0",
+        "simplesamlphp/composer-module-installer": "~1.1",
+        "simplesamlphp/simplesamlphp": "dev-master"
+    },
+    "require-dev": {
+        "simplesamlphp/simplesamlphp-test-framework": "~0.1.0"
+    }
+}
+

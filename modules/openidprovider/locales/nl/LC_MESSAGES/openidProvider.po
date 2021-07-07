@@ -1,0 +1,59 @@
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleSAMLphp 1.15\n"
+"Report-Msgid-Bugs-To: simplesamlphp-translation@googlegroups.com\n"
+"POT-Creation-Date: 2020-03-25 17:16+0100\n"
+"PO-Revision-Date: 2020-03-25 17:16+0100\n"
+"Last-Translator: \n"
+"Language: nl\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+
+msgid "OpenID provider"
+msgstr "OpenID voor %USERID%"
+
+msgid "This is the OpenID user page for <code>%USERID%</code>."
+msgstr "Dit is de OpenID gebruikerspagina voor <code>%USERID%</code>."
+
+msgid "View your own OpenID page."
+msgstr "Bekijk uw eigen OpenID pagina."
+
+msgid "Log in to view your own OpenID page."
+msgstr "Log in om uw eigen OpenID pagina te bekijken."
+
+msgid "Log out"
+msgstr "Log uit"
+
+msgid "Click here to log out of your OpenID user."
+msgstr "Klik hier om uit te loggen van uw OpenID gebruiker."
+
+msgid "Do you wish to log on to %SITEURL%?"
+msgstr "Wilt u in te loggen op %SITEURL%?"
+
+msgid "Remember this decision"
+msgstr "Onthoud deze keuze"
+
+msgid "Confirm"
+msgstr "Bevestig"
+
+msgid "Trusted Sites"
+msgstr "Vertrouwde Sites"
+
+msgid "Remove"
+msgstr "Verwijder"
+
+msgid ""
+"No sites are trusted. When you authenticate with a site, "
+"you can choose to add it to this list by choosing <q>Remember this "
+"decision</q>."
+msgstr ""
+"Geen sites zijn vertrouwd. Wanneer u verbind met een site, kunt u kiezen "
+"om deze toe te voegen aan deze lijst, door <q>Onthoud deze keuze</q> te "
+"kiezen."
+

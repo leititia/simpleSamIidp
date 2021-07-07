@@ -1,0 +1,41 @@
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleSAMLphp 1.15\n"
+"Report-Msgid-Bugs-To: simplesamlphp-translation@googlegroups.com\n"
+"POT-Creation-Date: 2020-03-25 17:16+0100\n"
+"PO-Revision-Date: 2020-03-25 17:16+0100\n"
+"Last-Translator: \n"
+"Language: hu\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+
+msgid "OpenID provider"
+msgstr "%USERID% OpenID azonosítója"
+
+msgid "View your own OpenID page."
+msgstr "Tekintse meg OpenID oldalát."
+
+msgid "Log out"
+msgstr "Kilépés"
+
+msgid "Click here to log out of your OpenID user."
+msgstr "Kattintson a kilépéshez."
+
+msgid "Remember this decision"
+msgstr "Emlékezzen erre a választásra"
+
+msgid "Confirm"
+msgstr "Megerősít"
+
+msgid "Trusted Sites"
+msgstr "Megbízható oldalak"
+
+msgid "Remove"
+msgstr "Töröl"
+

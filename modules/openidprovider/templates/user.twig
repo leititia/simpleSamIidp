@@ -1,0 +1,67 @@
+{% extends "base.twig" %}
+{% set pagetitle = 'OpenID Provider' %}
+{% block content %}
+
+<h2>{{ pagetitle }}</h2>
+
+{% if userId != false %}
+<p>{{ 'This is the OpenID user page for <code>%USERID%</code>.'|trans({'%USERID%': userId|escape('html')})|raw }}.</p>
+{% endif %}
+
+{% if loggedInAs != true %}
+<p><a href="{{ loginURL|escape('html') }}">{{ 'Log in to view your own OpenID page.'|trans }}</a></p>
+{% elseif ownPage != true %}
+<p><a href="{{ identity|escape('html') }}">{{ 'View your own OpenID page.'|trans }}</a></p>
+{% endif %}
+
+{% if ownPage != false %}
+<h2>Using your OpenID</h2>
+
+<p>
+  {{ 'To log in with your OpenID identifier, use the following identifier:'|trans  }}
+  <br />
+  <code>{{ userIdURL|escape('html') }}</code>
+  <br />
+  <br />
+  {{ 'You can also delegate a different identifier to use this OpenID provider. To do that, you need to add the following to the <code>&lt;head&gt;</code>-element on the webpage of that identifier:'|trans|raw }}
+
+  <pre>
+    <&zwj;link rel="openid.server" href="{{ serverURL|escape('html') }}" />
+  </pre>
+  <pre>
+    <&zwj;link rel="openid2.provider" href="{{ serverURL|escape('html') }}" />
+  <pre>
+    <&zwj;link rel="openid.delegate" href="{{ userIdURL|escape('html') }}" />
+  </pre>
+  <pre>
+    <&zwj;link rel="openid2.local_id" href="{{ userIdURL|escape('html') }}" />
+  </pre>
+</p>
+
+<h2>{{ 'Trusted Sites'|trans }}</h2>
+
+{% if trustedSites|length > 0 %}
+
+<div class="form">
+  <form method="post" action="?">
+    <ul>
+{% for hex, site in trustedSites %}
+      <li>
+        <input type="submit" name="{{ 'remove_' ~ hex }}" value="{{ 'Remove'|trans }}" />
+        <code>{{ site|escape('html') }}</code>
+      </li>
+{% endfor %}
+    </ul>
+  </form>
+</div>
+{% else %}
+<p>{{ 'No sites are trusted. When you authenticate with a site, you can choose to add it to this list by choosing <q>Remember this decision</q>.'|trans|raw }}</p>
+{% endif %}
+
+<h2>{{ 'Log out'|trans }}</h2>
+<p>
+  <a href="{{ logoutURL|escape('html') }}">{{ 'Click here to log out of your OpenID user.'|trans }}</a>
+</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,149 @@
+<?php
+
+/*
+ * This file is part of the simplesamlphp-module-oidc.
+ *
+ * Copyright (C) 2018 by the Spanish Research and Academic Network.
+ *
+ * This code was developed by Universidad de Córdoba (UCO https://www.uco.es)
+ * for the RedIRIS SIR service (SIR: http://www.rediris.es/sir)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace SimpleSAML\Modules\OpenIDConnect\Repositories;
+
+use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
+use League\OAuth2\Server\Repositories\AuthCodeRepositoryInterface;
+use SimpleSAML\Error\Assertion;
+use SimpleSAML\Modules\OpenIDConnect\Entity\AuthCodeEntity;
+use SimpleSAML\Modules\OpenIDConnect\Utils\TimestampGenerator;
+
+class AuthCodeRepository extends AbstractDatabaseRepository implements AuthCodeRepositoryInterface
+{
+    public const TABLE_NAME = 'oidc_auth_code';
+
+    public function getTableName(): string
+    {
+        return $this->database->applyPrefix(self::TABLE_NAME);
+    }
+
+    public function getNewAuthCode(): AuthCodeEntity
+    {
+        return new AuthCodeEntity();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function persistNewAuthCode(AuthCodeEntityInterface $authCodeEntity)
+    {
+        if (!$authCodeEntity instanceof AuthCodeEntity) {
+            throw new Assertion('Invalid AccessTokenEntity');
+        }
+
+        $stmt = sprintf(
+            "INSERT INTO %s (id, scopes, expires_at, user_id, client_id, is_revoked, redirect_uri) "
+                . "VALUES (:id, :scopes, :expires_at, :user_id, :client_id, :is_revoked, :redirect_uri)",
+            $this->getTableName()
+        );
+
+        $this->database->write(
+            $stmt,
+            $authCodeEntity->getState()
+        );
+    }
+
+    /**
+     * Find Access Token by id.
+     */
+    public function findById(string $codeId): ?AuthCodeEntityInterface
+    {
+        $stmt = $this->database->read(
+            "SELECT * FROM {$this->getTableName()} WHERE id = :id",
+            [
+                'id' => $codeId,
+            ]
+        );
+
+        if (!$rows = $stmt->fetchAll()) {
+            return null;
+        }
+
+        $data = current($rows);
+        $clientRepository = new ClientRepository($this->configurationService);
+        $data['client'] = $clientRepository->findById($data['client_id']);
+
+        return AuthCodeEntity::fromState($data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function revokeAuthCode($codeId)
+    {
+        $authCode = $this->findById($codeId);
+
+        if (!$authCode instanceof AuthCodeEntity) {
+            throw new \RuntimeException("AuthCode not found: {$codeId}");
+        }
+
+        $authCode->revoke();
+        $this->update($authCode);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isAuthCodeRevoked($tokenId)
+    {
+        $authCode = $this->findById($tokenId);
+
+        if (!$authCode instanceof AuthCodeEntity) {
+            throw new \RuntimeException("AuthCode not found: {$tokenId}");
+        }
+
+        return $authCode->isRevoked();
+    }
+
+    /**
+     * Removes expired auth codes.
+     */
+    public function removeExpired(): void
+    {
+        $this->database->write(
+            "DELETE FROM {$this->getTableName()} WHERE expires_at < :now",
+            [
+                'now' => TimestampGenerator::utc()->format('Y-m-d H:i:s'),
+            ]
+        );
+    }
+
+    /**
+     * @return void
+     */
+    private function update(AuthCodeEntity $authCodeEntity)
+    {
+        $stmt = sprintf(
+            <<<EOS
+            UPDATE %s 
+            SET 
+                scopes = :scopes,
+                expires_at = :expires_at,
+                user_id = :user_id,
+                client_id = :client_id,
+                is_revoked = :is_revoked,
+                redirect_uri = :redirect_uri
+            WHERE id = :id
+EOS
+            ,
+            $this->getTableName()
+        );
+
+        $this->database->write(
+            $stmt,
+            $authCodeEntity->getState()
+        );
+    }
+}

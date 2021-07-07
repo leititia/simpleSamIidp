@@ -1,0 +1,56 @@
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleSAMLphp 1.15\n"
+"Report-Msgid-Bugs-To: simplesamlphp-translation@googlegroups.com\n"
+"POT-Creation-Date: 2020-03-25 17:16+0100\n"
+"PO-Revision-Date: 2020-03-25 17:16+0100\n"
+"Last-Translator: \n"
+"Language: ja\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+
+msgid "OpenID provider"
+msgstr "%USERID% の OpenID"
+
+msgid "This is the OpenID user page for <code>%USERID%</code>."
+msgstr "ここはO<code>%USERID%</code>のOpenIDユーザーページです。"
+
+msgid "View your own OpenID page."
+msgstr "あなたのOpenIDページを参照。"
+
+msgid "Log in to view your own OpenID page."
+msgstr "あなたのOpenIDページを参照する為にログイン。"
+
+msgid "Log out"
+msgstr "ログアウト"
+
+msgid "Click here to log out of your OpenID user."
+msgstr "クリックしてOpenIDユーザをログアウトします。"
+
+msgid "Do you wish to log on to %SITEURL%?"
+msgstr "%SITEURL% へログインしますか?"
+
+msgid "Remember this decision"
+msgstr "この設定を記憶する"
+
+msgid "Confirm"
+msgstr "確認"
+
+msgid "Trusted Sites"
+msgstr "信頼されているサイト"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid ""
+"No sites are trusted. When you authenticate with a site, "
+"you can choose to add it to this list by choosing <q>Remember this "
+"decision</q>."
+msgstr "信頼されているサイトはありません。あなたがサイトに認証を行う際、あなたはリストに追加された<q>記憶した決定</q>から選択する事が出来ます。"
+

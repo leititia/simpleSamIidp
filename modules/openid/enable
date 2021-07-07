@@ -1,0 +1,7 @@
+<?php
+$config = [
+    'openidprovider' => array(
+        'openidprovider:ProviderServer'
+    ),
+];
+?>

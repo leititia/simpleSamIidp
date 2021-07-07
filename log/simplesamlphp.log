@@ -1,0 +1,33 @@
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] SimpleSAML\Error\Error: UNHANDLEDEXCEPTION
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] Backtrace:
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 2 C:\Users\Leiticia\Documents\Projects\simplesamlphp\www\_include.php:20 (SimpleSAML_exception_handler)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 1 C:\Users\Leiticia\Documents\Projects\simplesamlphp\vendor\symfony\error-handler\ErrorHandler.php:607 (Symfony\Component\ErrorHandler\ErrorHandler::handleException)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 0 [builtin] (N/A)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] Caused by: Symfony\Component\ErrorHandler\Error\UndefinedMethodError: Attempted to call an undefined method named "addURLparameter" of class "SimpleSAML\Utils\HTTP".
+Did you mean to call "addURLParameters"?
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] Backtrace:
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 7 C:\Users\Leiticia\Documents\Projects\simplesamlphp\modules\openidprovider\lib\Auth\Source\Auth\OpenID\sspmod_authinwebo_InWebo.php:170 (SimpleSAML\Module\openidprovider\Auth\Source\Auth\OpenID\sspmod_authinwebo_InWebo::getInWeboModuleURL)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 6 C:\Users\Leiticia\Documents\Projects\simplesamlphp\modules\openidprovider\lib\Auth\Source\Auth\OpenID\ProviderServer.php:515 (SimpleSAML\Module\openidprovider\Auth\Source\Auth\OpenID\ProviderServer::authenticate)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 5 C:\Users\Leiticia\Documents\Projects\simplesamlphp\lib\SimpleSAML\Auth\Source.php:210 (SimpleSAML\Auth\Source::initLogin)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 4 C:\Users\Leiticia\Documents\Projects\simplesamlphp\lib\SimpleSAML\Auth\Simple.php:169 (SimpleSAML\Auth\Simple::login)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 3 [builtin] (call_user_func_array)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 2 C:\Users\Leiticia\Documents\Projects\simplesamlphp\lib\SimpleSAML\HTTP\RunnableResponse.php:72 (SimpleSAML\HTTP\RunnableResponse::sendContent)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 1 C:\Users\Leiticia\Documents\Projects\simplesamlphp\vendor\symfony\http-foundation\Response.php:394 (Symfony\Component\HttpFoundation\Response::send)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] 0 C:\Users\Leiticia\Documents\Projects\simplesamlphp\www\module.php:10 (N/A)
+Jul 07 08:51:03 simplesamlphp ERROR [9c7b70839e] Error report with id 994de6a2 generated.
+Jul 07 08:51:41 simplesamlphp WARNING [9c7b70839e] The class or interface 'SimpleSAML_Session' is now using namespaces, please use 'SimpleSAML\Session'.
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] SimpleSAML\Error\Error: UNHANDLEDEXCEPTION
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] Backtrace:
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 2 C:\Users\Leiticia\Documents\Projects\simplesamlphp\www\_include.php:20 (SimpleSAML_exception_handler)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 1 C:\Users\Leiticia\Documents\Projects\simplesamlphp\vendor\symfony\error-handler\ErrorHandler.php:607 (Symfony\Component\ErrorHandler\ErrorHandler::handleException)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 0 [builtin] (N/A)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] Caused by: Symfony\Component\ErrorHandler\Error\UndefinedMethodError: Attempted to call an undefined method named "getInstance" of class "SimpleSAML\Session".
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] Backtrace:
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 6 C:\Users\Leiticia\Documents\Projects\simplesamlphp\modules\openidprovider\lib\Auth\Source\Auth\OpenID\ProviderServer.php:522 (SimpleSAML\Module\openidprovider\Auth\Source\Auth\OpenID\ProviderServer::authenticate)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 5 C:\Users\Leiticia\Documents\Projects\simplesamlphp\lib\SimpleSAML\Auth\Source.php:210 (SimpleSAML\Auth\Source::initLogin)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 4 C:\Users\Leiticia\Documents\Projects\simplesamlphp\lib\SimpleSAML\Auth\Simple.php:169 (SimpleSAML\Auth\Simple::login)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 3 [builtin] (call_user_func_array)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 2 C:\Users\Leiticia\Documents\Projects\simplesamlphp\lib\SimpleSAML\HTTP\RunnableResponse.php:72 (SimpleSAML\HTTP\RunnableResponse::sendContent)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 1 C:\Users\Leiticia\Documents\Projects\simplesamlphp\vendor\symfony\http-foundation\Response.php:394 (Symfony\Component\HttpFoundation\Response::send)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] 0 C:\Users\Leiticia\Documents\Projects\simplesamlphp\www\module.php:10 (N/A)
+Jul 07 08:51:41 simplesamlphp ERROR [9c7b70839e] Error report with id 72152c1e generated.
